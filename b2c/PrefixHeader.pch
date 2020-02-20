@@ -1,0 +1,140 @@
+//
+//  PrefixHeader.pch
+//  b2c
+//
+//  Created by wangyuanfei on 3/23/16.
+//  Copyright © 2016 www.16lao.com. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//w导入的
+
+
+#define DEBUG_LOG
+#ifdef DEBUG
+#define LOG(...) NSLog(__VA_ARGS__);
+#define LOG_METHOD NSLog(@"%s", __func__);
+#else
+#define LOG(...);
+#define LOG_METHOD
+#endif
+//#import "NSString+Hash.h"
+#define BASEURL @"http://www.zjlao.com/"
+#define statusAndnavigaHeight [[UIApplication sharedApplication] statusBarFrame].size.height + self.navigationController.navigationBar.bounds.size.height
+#define screenW [UIScreen mainScreen].bounds.size.width
+#define screenH [UIScreen mainScreen].bounds.size.height
+#define randomColor [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1]
+#define sepercolor [UIColor colorWithRed:191/255.0 green:191/255.0f blue:191/255.0f alpha:1]
+#define BottomView screenW * 0.11
+#define ImageUrlWithString(url) [NSURL URLWithString:[NSString stringWithFormat:@"http://i0.zjlao.com/%@",(url)]]
+#define BackgroundGray     [UIColor colorWithRed:244/256.0 green:244/256.0 blue:244/256.0 alpha:1];
+//#define BackgroundGray [UIColor colorWithWhite:0.97 alpha:1];
+#define UUID [[UIDevice currentDevice] identifierForVendor].UUIDString
+//#define ViewStartY     self.navigationView.bounds.size.height
+//分类页面左侧视图的宽度
+#define widthmemu 100
+
+/** 在控制器中才能用 */
+#define ALERT(alertMessage)\
+MBProgressHUD * hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];\
+hub.mode=MBProgressHUDModeText;\
+hub.labelText=[NSString stringWithFormat:@"%@",(alertMessage)];\
+[hub hide:YES afterDelay:2];
+
+/**自定义颜色*/
+#define customColor(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+/**弹出提示框*/
+#define ALERTModeCustomView(alertMessage,imageView,superView,delay,yesOrNO)\
+MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:superView];\
+[superView addSubview:hud];\
+hud.labelText =[NSString stringWithFormat:@"%@",alertMessage];\
+hud.dimBackground = yesOrNO;\
+hud.mode = MBProgressHUDModeCustomView;\
+hud.customView = imageView;\
+[hud show:YES];\
+[hud hide:YES afterDelay:delay];
+
+
+/**cell中含有三个view的cell的大体高度*/
+/**每个view之间的间隔*/
+#define viewInterval 10
+/**距离边界的距离*/
+#define leadMargin 10
+#define heightOfHaveThreeView (screenW - 2 * leadMargin - 2 * viewInterval)/3.0 + 30
+
+/**优惠券cell的高度*/
+#define CouponCellHeight 60
+/**自定义的滑动视图可以设置自动滚动也可以不自动滚动*/
+#import "CustomCollectionView.h"
+#import "CustomCollectionModel.h"
+/**滑动切可以放大缩小图片*/
+#import "GCollectionView.h"
+#import "UILabel+Extension.h"
+#import "AFNetworking.h"
+#import "AsyncSocket.h"
+//#import "SearchVC.h"
+//#import "MessageCenterVC.h"
+//#import "UMSocial.h"
+#import "Masonry.h"
+#import "UINavigationBar+Extension.h"
+#import "SkipManager.h"
+//#import "ScrollCell.h"
+//#import "BtnCell.h"
+//#import "HotCell.h"
+#import "FMDB.h"
+//#import "TempBannerCell.h"
+//#import "DaySeeCell.h"
+//#import "NormalCell.h"
+//#import "ShopScrollCell.h"
+//#import "ThemeMarketCell.h"
+//#import "HotMarketCell.h"
+//#import "SuperBrandCell.h"
+//#import "SelectionMarketCell.h"
+//#import "SpecialSellCell.h"
+//#import "DiscountZoonCell.h"
+//#import "UIImage+ImgWithColor.h"
+#import "HomeRefreshHeader.h"
+#import "HomeRefreshFooter.h"
+#import "UserInfo.h"
+#import "MBProgressHUD.h"
+#import "KeyVC.h"
+#import "SecondBaseVC.h"
+#import "ActionBaseView.h"
+#import "HMessageVC.h"
+#import "NSString+StrSize.h"
+#import "ArrowToRight.h"
+//#import "NSString+StrBouns.h"
+#import "MJRefresh.h"
+#import "MJExtension.h"
+#import "b2c-Swift.h"
+//#import "UIView+GotVC.h"
+//#import "Factory.h"
+//#import "UITableViewCell+Extession.h"
+#import "SDWebImage-umbrella.h"
+#import "NSString+Hash.h"
+//#import "ComposeModel.h"
+//#import "HomeTitleView.h"
+//#import "ShopMoreView.h"
+//#import "PControlBaseVC.h"
+//#import "GlobalSubBaseVC.h"
+#define BASEURL @"http://www.zjlao.com/"
+#import "SVCShop.h"
+#import "SVCGoods.h"
+
+#define SCALE ([UIScreen mainScreen].bounds.size.width>375.0 ? 1.5 : 1)
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//小强导入的
+
+
+#endif /* PrefixHeader_pch */
+
+//#if ([UIScreen mainScreen].bounds.size.width>375.0)
+//#define SCALE  1.5
+//#else
+//#define SCALE  1
+//#endif
+
+
